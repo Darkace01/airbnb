@@ -13,15 +13,17 @@ const Search = () => {
   const range = `${formattedStartDate} - ${formattedEndDate}`;
   return (
     <div>
-      <Header />
+      <Header placeholder={`${location} | ${range} | ${noOfGuests} guests`} />
       <main className='flex'>
         <section className='flex-grow pt-14 px-6'>
           <p className='text-xs'>
-            300+ Stays - {range} - for {noOfGuests} number of guest
+            300+ Stays - {range} - for {noOfGuests} guest
             {noOfGuests > 1 ? 's' : ''}
           </p>
 
-          <h1 className='text-3xl font-semibold mt-2 mb-6'>Stays in Mars</h1>
+          <h1 className='text-3xl font-semibold mt-2 mb-6'>
+            Stays in {location}
+          </h1>
 
           <div className='hidden lg:inline-flex mb-5 space-x-3 text-grey-800 whitespace-nowrap'>
             <p className='button'>Cancellation Flexibility</p>
