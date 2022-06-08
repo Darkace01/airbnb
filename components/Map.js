@@ -36,7 +36,7 @@ function MapBox({ searchResults }) {
               🏚️
             </p>
           </Marker>
-          {selectedLocation.long === result.long ? (
+          {selectedLocation.long === result.long && (
             <Popup
               onClose={() => setSelectedLocation({})}
               closeOnClick={true}
@@ -45,8 +45,6 @@ function MapBox({ searchResults }) {
             >
               {selectedLocation.title}
             </Popup>
-          ) : (
-            false
           )}
         </div>
       ))}
