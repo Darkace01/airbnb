@@ -17,6 +17,7 @@ const Header = ({ placeholder }) => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [noOfGuests, setNoOfGuests] = useState(1);
+  const [showCalendar, setShowCalendar] = useState(false);
   const router = useRouter();
   const selectionRange = {
     startDate: startDate,
@@ -33,6 +34,7 @@ const Header = ({ placeholder }) => {
     setSearchInput('');
     setStartDate(new Date());
     setEndDate(new Date());
+    setShowCalendar(false);
   };
 
   const search = () => {
@@ -45,6 +47,16 @@ const Header = ({ placeholder }) => {
         noOfGuests,
       },
     });
+    setShowCalendar(false);
+    setSearchInput('');
+  };
+  const handleSearchInput = (e) => {
+    setSearchInput(e.target.value);
+    if (e.target.value === '') {
+      setShowCalendar(false);
+    } else {
+      setShowCalendar(true);
+    }
   };
   return (
     <header className='sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-10 '>
@@ -62,7 +74,7 @@ const Header = ({ placeholder }) => {
       <div className='flex items-center md:border-2 rounded-full py-2 md:shadow-sm'>
         <input
           value={searchInput}
-          onChange={(e) => setSearchInput(e.target.value)}
+          onChange={handleSearchInput}
           type='text'
           placeholder={placeholder || 'Start your search'}
           className='pl-5 bg-transparent outline-none flex-grow text-sm text-gray-600 placeholder-gray-400'
@@ -77,7 +89,7 @@ const Header = ({ placeholder }) => {
           <UserCircleIcon className='h-6 cursor-pointer' />
         </div>
       </div>
-      {searchInput && (
+      {showCalendar && (
         <div className='flex flex-col col-span-3 mx-auto'>
           <DateRangePicker
             ranges={[selectionRange]}

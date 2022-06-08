@@ -9,8 +9,8 @@ const Search = ({ searchResults }) => {
   const router = useRouter();
   const { location, startDate, endDate, noOfGuests } = router.query;
   console.log(startDate);
-  const formattedStartDate = format(new Date(startDate), 'dd MMM yy');
-  const formattedEndDate = format(new Date(endDate), 'dd MMM yy');
+  const formattedStartDate = format(new Date(startDate), 'dd MMMM yy');
+  const formattedEndDate = format(new Date(endDate), 'dd MMMM yy');
   const range = `${formattedStartDate} - ${formattedEndDate}`;
   return (
     <div>
@@ -18,7 +18,15 @@ const Search = ({ searchResults }) => {
       <main className='flex lg:max-w-screen-xl lg:mx-auto pb-5'>
         <section className='flex-grow pt-14 px-6'>
           <p className='text-xs'>
-            300+ Stays - {range} - for {noOfGuests} guest
+            300+ Stays -{' '}
+            <span className='bg-red-400 text-white py-2 px-3 text-sm rounded-lg shadow-lg'>
+              {formattedStartDate}
+            </span>{' '}
+            -{' '}
+            <span className='bg-red-400 text-white py-2 px-3 text-sm rounded-lg shadow-lg'>
+              {formattedEndDate}
+            </span>{' '}
+            - for {noOfGuests} guest
             {noOfGuests > 1 ? 's' : ''}
           </p>
 
