@@ -99,10 +99,16 @@ const Header = ({ placeholder }) => {
             />
           </div>
           <div className='flex'>
-            <button className='flex-grow text-gray-500' onClick={resetInput}>
+            <button
+              className='flex-grow text-gray-500 hover:bg-red-400 hover:text-white py-2 px-5 hover:shadow-sm rounded-lg transition duration-100 ease-in'
+              onClick={resetInput}
+            >
               Cancel
             </button>
-            <button className='flex-grow text-red-400' onClick={search}>
+            <button
+              className='flex-grow text-red-400 hover:bg-red-400 hover:text-white py-2 px-5 hover:shadow-sm rounded-lg transition duration-100 ease-in'
+              onClick={search}
+            >
               Search
             </button>
           </div>
