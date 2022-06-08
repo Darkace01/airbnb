@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import { useRouter } from 'next/router';
 import { format } from 'date-fns';
 import InfoCard from '../components/InfoCard';
+import MapBox from '../components/Map';
 
 const Search = ({ searchResults }) => {
   const router = useRouter();
@@ -15,7 +16,7 @@ const Search = ({ searchResults }) => {
   return (
     <div>
       <Header placeholder={`${location} | ${range} | ${noOfGuests} guests`} />
-      <main className='flex lg:max-w-screen-xl lg:mx-auto pb-5'>
+      <main className='flex  pb-5'>
         <section className='flex-grow pt-14 px-6'>
           <p className='text-xs'>
             300+ Stays -{' '}
@@ -57,6 +58,9 @@ const Search = ({ searchResults }) => {
               )
             )}
           </div>
+        </section>
+        <section className='hidden xl:inline-flex xl:min-w-[600px]'>
+          <MapBox searchResults={searchResults} />
         </section>
       </main>
       <Footer />
