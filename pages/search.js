@@ -15,7 +15,7 @@ const Search = ({ searchResults }) => {
   return (
     <div>
       <Header placeholder={`${location} | ${range} | ${noOfGuests} guests`} />
-      <main className='flex'>
+      <main className='flex lg:max-w-screen-xl lg:mx-auto pb-5'>
         <section className='flex-grow pt-14 px-6'>
           <p className='text-xs'>
             300+ Stays - {range} - for {noOfGuests} guest
